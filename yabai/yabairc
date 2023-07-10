@@ -35,13 +35,13 @@ yabai -m config window_border                off
 yabai -m config window_border_placement      inset
 yabai -m config window_border_blur           off
 yabai -m config window_border_hidpi          off
-yabai -m config window_border_width          2 
+yabai -m config window_border_width          3 
 yabai -m config window_border_radius         12
 yabai -m config active_window_border_topmost off
 #yabai -m config active_window_border_color   0xfcFFEE58
-yabai -m config active_window_border_color   0xffffc0cb
+yabai -m config active_window_border_color   0x00cba6f7
 yabai -m config normal_window_border_color   0x00ffffff
-yabai -m config insert_window_border_color   0xffd75f5f
+yabai -m config insert_window_border_color   0x00cba6f7
 
 yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      96
@@ -54,20 +54,20 @@ yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 
 yabai -m config layout                       bsp
-yabai -m config top_padding                  50
+yabai -m config top_padding                  10
 yabai -m config bottom_padding               10
 yabai -m config left_padding                 10
 yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
 # 动画
-#yabai -m config window_animation_duration    0.30
+yabai -m config window_animation_duration    0.30
 
 # ====
 # 规则
 # ====
 
-otherApp='^(IINA|访达|QSpace Pro|iShot Pro|日历|System Preferences|系统偏好设置|Mail|微信|WeChatc|QQ/|网易云音乐|Alfred Preferences|Tencent Lemon|企业微信|Todoist|Input Source Pro|Spotify|Enpass|预览)$'
+otherApp='^(IINA|访达|QSpace Pro|iShot Pro|日历|System Preferences|系统偏好设置|Mail|微信|WeChatc|QQ/|网易云音乐|Alfred Preferences|Tencent Lemon|企业微信|Todoist|Input Source Pro|Spotify|Enpass|预览|Stats)$'
 yabai -m rule --add app="${otherApp}" manage=off
 
 ## specific rule
@@ -76,11 +76,10 @@ yabai -m rule --add app="^IntelliJ IDEA$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA$" title="( – )" manage=on
 
 # 调用切换toppadding的脚本
-skhd -n "alt - a" "~.config/yabai/auto_change_padding.sh"
 
-yabai -m signal --add event=applicationDidFinishLaunching action="~/.config/yabai/auto_top.sh"
-yabai -m signal --add event=displayAdded action="~/.config/yabai/auto_top.sh"
-yabai -m signal --add event=displayRemoved action="~/.config/yabai/auto_top.sh"
+yabai -m signal --add event=applicationDidFinishLaunching action="~/.config/yabai/auto_change_padding.sh"
+yabai -m signal --add event=displayAdded action="~/.config/yabai/auto_change_padding.sh"
+yabai -m signal --add event=displayRemoved action="~/.config/yabai/auto_change_padding.sh"
 
 echo "yabai configuration loaded.."
 

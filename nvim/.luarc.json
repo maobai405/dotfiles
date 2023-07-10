@@ -1,8 +1,10 @@
 {
     "diagnostics.globals": [
-        "_return"
+        "_return",
+        "unction"
     ],
     "diagnostics.disable": [
-        "lowercase-global"
+        "lowercase-global",
+        "empty-block"
     ]
 }

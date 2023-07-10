@@ -1,5 +1,5 @@
 return function()
-    return {
-        enable = false,
-    }
+  return {
+    enable = true,
+  }
 end
