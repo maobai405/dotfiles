@@ -1,10 +1,13 @@
 # open system Applications(打开系统应用)
 cmd - 1 : open /Applications/Arc.app
+# cmd - 1 : open /Applications/Firefox\ Developer\ Edition.app
 cmd - 2 : open /Applications/QSpace\ Pro.app
+# cmd - 2 : open /Applications/Spacedrive.app
 cmd - 3 : open /Applications/Visual\ Studio\ Code.app
 # cmd - e : open /Applications/Tabby.app
 # cmd - e : open /Applications/Alacritty.app
-cmd - e : open /Applications/WezTerm.app
+# cmd - e : open /Applications/WezTerm.app
+cmd - e : open /Applications/kitty.app
 
 # focus window(同一个空间切换窗口焦点)
 ctrl + alt - h : yabai -m window --focus west

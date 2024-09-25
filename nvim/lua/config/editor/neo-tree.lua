@@ -1,37 +1,38 @@
-return function()
-  return {
-    sources = { "filesystem", "buffers", "git_status", "document_symbols" },
-    open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "Outline" },
-    filesystem = {
-      bind_to_cwd = false,
-      follow_current_file = { enabled = true },
-      use_libuv_file_watcher = true,
-      window = {
-        mappings = {
-          ["S"] = "show_fs_stat",
-        },
-      },
-      commands = {
-        show_fs_stat = function(state)
-          local node = state.tree:get_node()
-          local command = "open " .. "-R " .. node.path
-          os.execute(command)
-        end,
-      },
-    },
+return {
+  sources = { "filesystem" },
+  source_selector = {
+    winbar = false,
+  },
+  filesystem = {
     window = {
       mappings = {
-        ["<space>"] = "none",
-        ["<Tab>"] = "open",
+        ["S"] = "open_system_file_manager",
       },
     },
-    default_component_configs = {
-      indent = {
-        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-        expander_collapsed = "",
-        expander_expanded = "",
-        expander_highlight = "NeoTreeExpander",
-      },
+    commands = {
+      open_system_file_manager = function(state)
+        local node = state.tree:get_node()
+        local command = "open " .. "-R " .. node.path
+        os.execute(command)
+      end,
     },
-  }
-end
+  },
+  window = {
+    width = 30,
+    mappings = {
+      ["<Tab>"] = "open",
+      ["<Space>"] = false, -- disable space until we figure out which-key disabling
+      ["[b"] = "prev_source",
+      ["]b"] = "next_source",
+      Y = "copy_selector",
+      h = "parent_or_close",
+      l = "child_or_open",
+      s = "open_split",
+      v = "open_vsplit",
+    },
+    fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
+      ["<C-J>"] = "move_cursor_down",
+      ["<C-K>"] = "move_cursor_up",
+    },
+  },
+}

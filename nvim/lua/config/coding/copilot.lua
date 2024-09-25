@@ -10,7 +10,8 @@ return function()
     },
     suggestion = {
       -- if true, it can interfere with completions in copilot-cmp
-      enabled = false,
+      enabled = true,
+      auto_trigger = true,
     },
     filetypes = {
       ["dap-repl"] = false,

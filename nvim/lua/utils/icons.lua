@@ -161,9 +161,9 @@ local data = {
     Vim = "",
   },
   cmp = {
-    Codeium = "",
+    Codeium = "󰘦 ",
     TabNine = "",
-    Copilot = "",
+    Copilot = " ",
     Copilot_alt = "",
     -- Add source-specific icons here
     buffer = "",
@@ -205,9 +205,7 @@ local data = {
 function icons.get(category, add_space)
   if add_space then
     return setmetatable({}, {
-      __index = function(_, key)
-        return data[category][key] .. " "
-      end,
+      __index = function(_, key) return data[category][key] .. " " end,
     })
   else
     return data[category]

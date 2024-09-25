@@ -17,19 +17,20 @@ yabai -m signal --add event=application_hidden action="~/.config/yabai/auto-focu
 yabai -m signal --add event=window_minimized action="~/.config/yabai/auto-focus-to-new-one-when-window-destroyed.sh 2> /dev/null"
 
 # 将当前激活窗口置于最上层
-# yabai -m signal --add event=window_focused action="yabai -m window --layer normal"
+yabai -m signal --add event=window_focused action="yabai -m window --sub-layer normal"
 
 # 切换工作区自动聚焦
 yabai -m signal --add event=space_changed action='yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"'
 
 # 配置
 yabai -m config mouse_follows_focus          off
-yabai -m config focus_follows_mouse          autoraise
+# yabai -m config focus_follows_mouse        autoraise
+yabai -m config focus_follows_mouse          off
 yabai -m config window_placement             second_child
 yabai -m config window_shadow                float
 
 yabai -m config window_opacity               off
-# yabai -m config window_opacity_duration      96
+# yabai -m config window_opacity_duration    96
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        1.0
 yabai -m config split_ratio                  0.50
@@ -49,6 +50,6 @@ yabai -m config window_gap                   10
 yabai -m config window_animation_duration    0.30
 
 # 下列应用禁用平铺
-otherApp='^(sing-box|uTools|balenaEtcher|Spotify|System Settings|IINA|访达|QSpace Pro|iShot Pro|日历|备忘录|微信|WeChatc|网易云音乐|Tencent Lemon|企业微信|预览)$'
+otherApp='^(uTools|balenaEtcher|System Settings|IINA|访达|QSpace Pro|iShot Pro|日历|备忘录|微信|WeChatc|网易云音乐|Tencent Lemon|企业微信|预览)$'
 # yabai -m rule --add app="${otherApp}" manage=on sticky=on
 yabai -m rule --add app="${otherApp}" manage=off
