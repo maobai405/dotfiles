@@ -24,9 +24,7 @@ return {
       ["<Space>"] = false, -- disable space until we figure out which-key disabling
       ["[b"] = "prev_source",
       ["]b"] = "next_source",
-      Y = "copy_selector",
-      h = "parent_or_close",
-      l = "child_or_open",
+      P = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
       s = "open_split",
       v = "open_vsplit",
     },

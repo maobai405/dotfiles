@@ -3,8 +3,8 @@ local M = {}
 ---获取视觉模式范围
 ---@return table
 function M.get_range()
-  local _start = vim.fn.getpos "v"
-  local _end = vim.fn.getpos "."
+  local _start = vim.fn.getpos("v")
+  local _end = vim.fn.getpos(".")
 
   local s_row, e_row = math.min(_start[2], _end[2]), math.max(_start[2], _end[2])
   local s_col, e_col = math.min(_start[3], _end[3]), math.max(_start[3], _end[3])
@@ -38,8 +38,7 @@ end
 ---获取V 模式下选中的行文本
 ---@return string
 function M.get_lines()
-  -- local s_row, e_row = unpack(M.get_range())
-  local s_row, e_row = M.get_range()[1], M.get_range()[2]
+  local s_row, e_row = unpack(M.get_range())
 
   if s_row == e_row then
     return vim.fn.getline(s_row)
@@ -49,48 +48,30 @@ function M.get_lines()
   end
 end
 
----转换文本内容为 url 编码格式
----@param s string
+---获取需要选择的文本
+---@param mode string
 ---@return string
+function M.get_text(mode)
+  return ({
+    n = function()
+      return vim.fn.expand("<cword>")
+    end,
+    v = function()
+      return M.get_select()
+    end,
+    V = function()
+      return M.get_lines()
+    end,
+  })[mode]():match("^%s*(.-)%s*$")
+end
+
+--- 处理 url 转码
 function M.encodeURL(s)
   s = string.gsub(s, "%.", "-")
-  s = string.gsub(s, "([^%w%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end)
+  s = string.gsub(s, "([^%w%.%- ])", function(c)
+    return string.format("%%%02X", string.byte(c))
+  end)
   return string.gsub(s, " ", "+")
-end
-
----获取需要选择的文本
----@return string
-function M.get_text()
-  local mode = vim.fn.mode()
-  local text = ({
-    n = function() return vim.fn.expand "<cword>" end,
-    v = function() return M.get_select() end,
-    V = function() return M.get_lines() end,
-  })[mode]():match "^%s*(.-)%s*$"
-
-  return M.encodeURL(text)
-end
-
----合并键位映射表
----@param ... unknown
----@return table
-function M.merge_mapping(...)
-  local result = {}
-
-  -- 遍历所有传入的映射表
-  for _, mapping in ipairs { ... } do
-    for mode, mode_mappings in pairs(mapping) do
-      -- 如果结果中还没有这个模式的映射，则创建一个空表
-      if not result[mode] then result[mode] = {} end
-
-      -- 合并当前模式的映射
-      for keybind, keybind_mapping in pairs(mode_mappings) do
-        result[mode][keybind] = keybind_mapping
-      end
-    end
-  end
-
-  return result
 end
 
 return M

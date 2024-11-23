@@ -14,12 +14,6 @@ if status is-interactive
     set -gx PKG_CONFIG_PATH /opt/homebrew/opt/ruby/lib/pkgconfig
 
 
-    # 配制mysql的环境路径
-    set -gx PATH /opt/homebrew/opt/mysql@5.7/bin $PATH
-
-    # 配置composer的环境路径 -- php包管理器
-    set -gx PATH $HOME/.composer/vendor/bin $PATH
-
     # 配置pnpm的环境路径 -- node包管理器
     set -gx PATH /opt/homebrew/opt/pnpm/bin $PATH
     set -gx PNPM_HOME /Users/maobai/Library/pnpm
@@ -33,14 +27,20 @@ if status is-interactive
     set -gx PATH $HOME/fvm/default/bin/cache/dart-sdk/bin $PATH
     set -gx PATH $HOME/.pub-cache/bin $PATH
 
-    # 添加fnm的环境路径 --node版本管理器
-    fnm env --use-on-cd | source
+    # mise 包管理工具
+    mise activate fish | source
 
     # 配置终端来初始化 starship -- shell美化工具
     starship init fish | source
 
-    # yazi别名
-    alias yz="yazi"
+    function yz
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        yazi $argv --cwd-file="$tmp"
+        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+            builtin cd -- "$cwd"
+        end
+        rm -f -- "$tmp"
+    end
 
     # nvim 别名
     alias v="nvim"
@@ -48,4 +48,6 @@ if status is-interactive
     # zellij 别名
     alias zj="zellij"
 
+    # lsd 别名
+    alias ls="lsd"
 end

@@ -47,7 +47,7 @@ yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
 # 动画
-yabai -m config window_animation_duration    0.30
+yabai -m config window_animation_duration    0.50
 
 # 下列应用禁用平铺
 otherApp='^(uTools|balenaEtcher|System Settings|IINA|访达|QSpace Pro|iShot Pro|日历|备忘录|微信|WeChatc|网易云音乐|Tencent Lemon|企业微信|预览)$'

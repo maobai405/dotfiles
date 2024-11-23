@@ -1,4 +1,8 @@
-return {
+local M = {}
+
+M.keys = {}
+
+M.config = {
   document_color = {
     enabled = true, -- can be toggled by commands
     kind = "background", -- "inline" | "foreground" | "background"
@@ -14,3 +18,5 @@ return {
   },
   custom_filetypes = {}, -- see the extension section to learn how it works
 }
+
+return M

@@ -14,7 +14,7 @@ return function()
   return {
     mac_window_bar = true, -- macos 圆点
     has_breadcrumbs = true, -- 面包屑
-    -- -- breadcrumbs_separator = "" -- 面包屑间隔符
+    -- breadcrumbs_separator = "" -- 面包屑间隔符
     has_line_number = true, -- 行号
     bg_theme = random_bg_theme, -- 背景色
     watermark = "maobai", -- 水印
