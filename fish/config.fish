@@ -50,4 +50,9 @@ if status is-interactive
 
     # lsd 别名
     alias ls="lsd"
+
+    # pnpm 别名
+    alias pi="pnpm run install"
+    alias pd="pnpm run dev"
+    alias ps="pnpm run start"
 end
