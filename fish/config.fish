@@ -8,24 +8,25 @@ if status is-interactive
     set -gx PATH /opt/homebrew/bin/pod $PATH
 
     # rust 环境变量
-    set -x PATH $HOME/.cargo/bin $PATH
+    set -gx PATH $HOME/.cargo/bin $PATH
 
     # 添加pkg-config的环境路径
     set -gx PKG_CONFIG_PATH /opt/homebrew/opt/ruby/lib/pkgconfig
 
-
     # 配置pnpm的环境路径 -- node包管理器
     set -gx PATH /opt/homebrew/opt/pnpm/bin $PATH
-    set -gx PNPM_HOME /Users/maobai/Library/pnpm
-    if not string match -q -- $PNPM_HOME $PATH
-        set -gx PATH "$PNPM_HOME" $PATH
-    end
 
     # 配置fvm的环境路径 -- flutter版本管理器
     set -gx FVM_HOME "$HOME/fvm"
     set -gx PATH $HOME/fvm/default/bin $PATH
     set -gx PATH $HOME/fvm/default/bin/cache/dart-sdk/bin $PATH
     set -gx PATH $HOME/.pub-cache/bin $PATH
+
+    # 大模型 key
+    set -gx ANTHROPIC_API_KEY sk-HDilxHT3viL4T5mC4690107cAa794015Aa86Ee321b9830E1
+    set -gx OPENAI_API_KEY sk-HDilxHT3viL4T5mC4690107cAa794015Aa86Ee321b9830E1
+    set -gx LLM_KEY sk-HDilxHT3viL4T5mC4690107cAa794015Aa86Ee321b9830E1
+    set -gx DEEPSEEK_API_KEY feb8551e-d9c7-46d1-a8c6-7b7e500a94a5
 
     # mise 包管理工具
     mise activate fish | source
@@ -45,6 +46,8 @@ if status is-interactive
     # nvim 别名
     alias v="nvim"
 
+    alias n="neovide"
+
     # zellij 别名
     alias zj="zellij"
 
@@ -56,3 +59,14 @@ if status is-interactive
     alias pd="pnpm run dev"
     alias ps="pnpm run start"
 end
+
+# pnpm
+set -gx PNPM_HOME "/Users/maobai/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.fish 2>/dev/null || :

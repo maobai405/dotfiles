@@ -1,5 +1,9 @@
 osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
+# 当前屏幕类型
+MAIN_DISPLAY=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:' | awk '/Display Type/ {print $3}')
+
+
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
@@ -40,16 +44,22 @@ yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 
 yabai -m config layout                       bsp
-yabai -m config top_padding                  10
-yabai -m config bottom_padding               60
+if [[ $MAIN_DISPLAY = "Built-in" ]]; then
+  yabai -m config top_padding                  10
+else
+  yabai -m config top_padding                  50
+fi
+yabai -m config bottom_padding               10
 yabai -m config left_padding                 10
 yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
 # 动画
-yabai -m config window_animation_duration    0.50
+yabai -m config window_animation_duration    0.30
 
 # 下列应用禁用平铺
-otherApp='^(uTools|balenaEtcher|System Settings|IINA|访达|QSpace Pro|iShot Pro|日历|备忘录|微信|WeChatc|网易云音乐|Tencent Lemon|企业微信|预览)$'
+otherApp='^(uTools|balenaEtcher|System Settings|IINA|访达|QSpace Pro|iShot Pro|日历|备忘录|微信|WeChatc|网易云音乐|Tencent Lemon|企业微信|预览|Arc)$'
 # yabai -m rule --add app="${otherApp}" manage=on sticky=on
 yabai -m rule --add app="${otherApp}" manage=off
+
+

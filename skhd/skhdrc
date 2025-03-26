@@ -3,11 +3,12 @@ cmd - 1 : open '/Applications/Arc.app'
 # cmd - 1 : open '/Applications/Firefox Developer Edition.app'
 cmd - 2 : open '/Applications/QSpace Pro.app'
 # cmd - 2 : open '/Applications/Spacedrive.app'
-cmd - 3 : open '/Applications/Visual Studio Code.app'
+# cmd - 3 : open '/Applications/Visual Studio Code.app'
 # cmd - e : open '/Applications/Tabby.app'
-# cmd - e : open '/Applications/Alacritty.app'
 # cmd - e : open '/Applications/WezTerm.app'
 cmd - e : open '/Applications/kitty.app'
+cmd - 3 : open '/Applications/kitty.app'
+# cmd - 2 : open '/Applications/Neovide.app'
 
 # focus window(同一个空间切换窗口焦点)
 ctrl + alt - h : yabai -m window --focus west
@@ -79,4 +80,5 @@ shift + alt - t : ~/.config/yabai/toggle-window-floating-tiling.sh forceCenter
 # Stack
 # alt - s进入或者退出stack，alt - d 切换到下一个stack
 alt - s : ~/.config/yabai/toggle-window-bsp-stack.sh
-alt - d : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+cmd - j : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+cmd - k : yabai -m window --focus stack.prev || yabai -m window --focus stack.last

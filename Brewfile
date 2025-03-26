@@ -11,8 +11,8 @@ tap "leoafarias/fvm"
 brew "mas"
 mas "Xcode", id: 497799835
 
-# nushell
-brew "nushell"
+# fish
+brew "fish"
 # sehll提示以及美化
 brew "starship"
 # 雄心勃勃的 Vim-fork 专注于可扩展性和敏捷性
@@ -25,11 +25,13 @@ brew "koekeishiya/formulae/skhd"
 brew "felixkratz/formulae/sketchybar"
 # 编写的超快终端文件管理器
 brew "yazi"
-# ls 命令升级
-brew lsd
+# node包管理工具
+brew "pnpm"
 # 简单、快速和用户友好的替代方案
 brew "fd"
-# node 包管理器 
+# 网络代理软件
+cask "sfm"
+# 语言 管理器 
 brew "mise"
 # 用 Go 编写的命令行模糊查找器
 brew "fzf"
@@ -41,6 +43,7 @@ brew "lazygit"
 brew "lazydocker"
 # 搜索工具，如 grep 和 The Silver Searcher
 brew "ripgrep"
+brew "zoxide"
 # 文件替换工具
 brew "gnu-sed"
 # ls 增强
@@ -50,13 +53,15 @@ brew "zellij"
 # 网络流量监控工具
 brew "ifstat"
 # 管理flutter版本工具
-brew "leoafarias/fvm/fvm"
+brew "fvm"
 
 # 字体
-cask "font-xpinecursive-code"
+cask "font-maple-mono-nf-cn"
 
-# 网络代理软件
-cask "sfm"
+# 阻止commnad + Q 立即退出
+cask "commandq"
+# bar
+cask "barik"
 # 浏览器
 cask "arc"
 # visual-studio-code
@@ -67,6 +72,9 @@ cask "only-switch"
 cask "easydict"
 # 终端模拟器
 cask "kitty"
+# 文件管理器
+# neovim GUI客户端
+cask "neovide"
 # 文件管理器
 cask "qspace-pro"
 # 远程桌面
@@ -83,3 +91,7 @@ cask "wechat"
 cask "wechatwork"
 # 截图 
 cask "pixpin"
+# expo开发工具
+cask "expo-orbit"
+# docker 管理
+cask "orbstack"

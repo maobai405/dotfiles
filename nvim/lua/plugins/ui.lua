@@ -2,6 +2,7 @@ return {
   -- 主题
   {
     "catppuccin/nvim",
+    name = "catppuccin",
     opts = require("config.ui.catppuccin"),
   },
   {
@@ -18,7 +19,8 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     opts = {
-      dark_variant = "main",
+      variant = "auto",
+      dark_variant = "moon",
       styles = {
         transparency = true,
       },
