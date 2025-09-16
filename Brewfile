@@ -30,7 +30,7 @@ brew "pnpm"
 # 简单、快速和用户友好的替代方案
 brew "fd"
 # 网络代理软件
-cask "sfm"
+cask "mihomo-party"
 # 语言 管理器 
 brew "mise"
 # 用 Go 编写的命令行模糊查找器
@@ -60,8 +60,12 @@ cask "font-maple-mono-nf-cn"
 
 # 阻止commnad + Q 立即退出
 cask "commandq"
+# 网络代理软件
+cask "clash-party"
+# 屏幕控制
+cask "monitorcontrol"
 # bar
-cask "barik"
+cask "mocki-toki/formulae/barik"
 # 浏览器
 cask "arc"
 # visual-studio-code
@@ -75,6 +79,8 @@ cask "kitty"
 # 文件管理器
 # neovim GUI客户端
 cask "neovide"
+# api测试工具
+cask "apifox"
 # 文件管理器
 cask "qspace-pro"
 # 远程桌面
@@ -87,11 +93,17 @@ cask "tencent-lemon"
 cask "utools"
 # 微信
 cask "wechat"
-# 企业微信
-cask "wechatwork"
+# 微信开发者工具
+cask "wechatwebdevtools"
+# 钉钉
+# cask "dingtalk"
 # 截图 
 cask "pixpin"
 # expo开发工具
 cask "expo-orbit"
 # docker 管理
 cask "orbstack"
+# oss软件
+cask "osS-browser"
+# figma
+cask "figma"

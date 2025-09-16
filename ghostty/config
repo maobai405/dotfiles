@@ -1,0 +1,21 @@
+# catppuccin-mocha iceberg-dark rose-pine rose-pine-dawn rose-pine-moon
+theme = catppuccin-mocha
+
+font-family = "Maple Mono NF CN"
+font-style = Italic
+font-size = 14
+font-thicken
+
+background-opacity = 0.8
+background-blur = true
+
+macos-titlebar-style = transparent
+macos-option-as-alt = true
+
+# 键位绑定
+keybind = cmd+shift+h=previous_tab
+keybind = cmd+shift+l=next_tab
+keybind = cmd+enter=new_tab
+
+# 自定义着色器
+# custom-shader = /Users/maobai/.config/ghostty/ghostty-shaders/dither.glsl

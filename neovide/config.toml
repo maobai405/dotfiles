@@ -2,6 +2,7 @@ frame = "transparent"
 fork = true
 maximized = false
 mouse-cursor-icon = "arrow"
+neovim-bin = "/opt/homebrew/bin/nvim"
 tabs = true
 
 # [font]
