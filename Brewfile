@@ -1,26 +1,15 @@
-tap "homebrew/core"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/services"
-tap "homebrew/cask-fonts"
-tap "koekeishiya/formulae"
-tap "felixkratz/formulae"
-tap "leoafarias/fvm"
-
-# 终端下载AppStore应用
-brew "mas"
-mas "Xcode", id: 497799835
-
 # fish
 brew "fish"
 # sehll提示以及美化
 brew "starship"
 # 雄心勃勃的 Vim-fork 专注于可扩展性和敏捷性
 brew "neovim"
+# 窗口管理器
+brew "nikitabobko/tap/aerospace"
 # 平铺窗口管理器
-brew "koekeishiya/formulae/yabai"
+# brew "koekeishiya/formulae/yabai"
 # 快捷键管理工具
-brew "koekeishiya/formulae/skhd"
+# brew "koekeishiya/formulae/skhd"
 # 额外的状态栏
 brew "felixkratz/formulae/sketchybar"
 # 编写的超快终端文件管理器
@@ -29,8 +18,6 @@ brew "yazi"
 brew "pnpm"
 # 简单、快速和用户友好的替代方案
 brew "fd"
-# 网络代理软件
-cask "mihomo-party"
 # 语言 管理器 
 brew "mise"
 # 用 Go 编写的命令行模糊查找器
@@ -44,28 +31,24 @@ brew "lazydocker"
 # 搜索工具，如 grep 和 The Silver Searcher
 brew "ripgrep"
 brew "zoxide"
-# 文件替换工具
-brew "gnu-sed"
 # ls 增强
 brew "lsd"
 # 可插拔终端工作区，以终端复用器为基本功能
-brew "zellij"
+# brew "zellij"
 # 网络流量监控工具
 brew "ifstat"
 # 管理flutter版本工具
-brew "fvm"
+brew "leoafarias/fvm/fvm"
 
 # 字体
 cask "font-maple-mono-nf-cn"
 
+# claude code 切换
+cask "cc-switch"
 # 阻止commnad + Q 立即退出
 cask "commandq"
-# 网络代理软件
-cask "clash-party"
 # 屏幕控制
 cask "monitorcontrol"
-# bar
-cask "mocki-toki/formulae/barik"
 # 浏览器
 cask "arc"
 # visual-studio-code
@@ -96,14 +79,20 @@ cask "wechat"
 # 微信开发者工具
 cask "wechatwebdevtools"
 # 钉钉
-# cask "dingtalk"
-# 截图 
-cask "pixpin"
+cask "dingtalk"
 # expo开发工具
 cask "expo-orbit"
 # docker 管理
 cask "orbstack"
-# oss软件
-cask "osS-browser"
 # figma
 cask "figma"
+# 输入法自动切换
+cask "input-source-pro"
+cask "Jackiexiao/tap/macvimswitch"
+# agent工具
+cask "cherry-studio"
+
+# 终端下载AppStore应用
+brew "mas"
+mas "iShot", id: 1485844094
+mas "Xcode", id: 497799835

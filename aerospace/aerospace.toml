@@ -170,7 +170,7 @@ if.app-name-regex-substring = '^(Arc.*|arc.*)$'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-name-regex-substring = '^(kitty.*)$'
+if.app-name-regex-substring = '^(Tabby)$'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
@@ -182,5 +182,5 @@ if.app-name-regex-substring = '^(钉钉.*)$'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-name-regex-substring = '^(QSpace Pro|FlClash|微信.*|设置.*)$'
+if.app-name-regex-substring = '^(QSpace Pro|FlClash|Cherry Studio|MuMu.*|微信|设置.*)$'
 run = 'layout floating'
